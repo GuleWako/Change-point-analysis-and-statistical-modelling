@@ -5,6 +5,8 @@ import matplotlib.pyplot as plt
 from flask import Flask, send_file
 import seaborn as sns
 import io
+import matplotlib
+matplotlib.use('Agg')
 
 
 app = Flask(__name__)
