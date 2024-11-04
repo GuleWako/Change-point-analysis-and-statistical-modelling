@@ -134,12 +134,13 @@ function App() {
       <div style={{ width: '100%', height: '800px' }}>
       <Line data={data1} options={options} />
     </div>
-    {
-      plotUrl &&  <div>
+  
+        <div>
       <img src={plotUrl} alt="ploturl" />
 
+
     </div>
-    }
+    
    
     </div>
   );

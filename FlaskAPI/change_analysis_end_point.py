@@ -21,6 +21,9 @@ def dataOverTime():
 
 @app.route('/seasonal', methods=['GET'])
 def seasonal_decompose():
+    decomposition = seasonal_decompose(price_data['Price'], model='multiplicative', period=365)
+    decomposition.plot()
+    plt.show()
     return None
 
 @app.route('/change_point', methods=['GET'])
