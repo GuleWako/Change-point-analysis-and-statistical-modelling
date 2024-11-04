@@ -1,16 +1,23 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Line } from 'react-chartjs-2';
-import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
+import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend,Filler } from 'chart.js';
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
 
 function App() {
   const [data, setData] = useState([]);
+  const [plotUrl, setPlotUrl]=useState('')
   const getData = async () => {
     await axios.get("http://127.0.0.1:5000/").then((response) => {
       setData(response.data);
+    });
+    await axios.get("http://127.0.0.1:5000/plot",{ responseType: 'blob' }).then((response) => {
+      const url = URL.createObjectURL(response.data);
+        setPlotUrl(url);
+        
+     
     });
   };
   useEffect(() => {
@@ -127,6 +134,14 @@ function App() {
       <div style={{ width: '100%', height: '800px' }}>
       <Line data={data1} options={options} />
     </div>
+  
+        <div>
+      <img src={plotUrl} alt="ploturl" />
+
+
+    </div>
+    
+   
     </div>
   );
 }

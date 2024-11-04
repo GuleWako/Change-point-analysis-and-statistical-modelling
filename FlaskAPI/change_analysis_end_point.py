@@ -5,6 +5,8 @@ import matplotlib.pyplot as plt
 from flask import Flask, send_file
 import seaborn as sns
 import io
+import matplotlib
+matplotlib.use('Agg')
 
 
 app = Flask(__name__)
@@ -19,6 +21,9 @@ def dataOverTime():
 
 @app.route('/seasonal', methods=['GET'])
 def seasonal_decompose():
+    decomposition = seasonal_decompose(price_data['Price'], model='multiplicative', period=365)
+    decomposition.plot()
+    plt.show()
     return None
 
 @app.route('/change_point', methods=['GET'])
