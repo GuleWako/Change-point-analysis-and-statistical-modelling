@@ -13,9 +13,12 @@
     "@material-tailwind/react": "^2.1.10",
     "axios": "^1.7.7",
     "chart.js": "^4.4.6",
+    "chartjs-plugin-annotation": "^3.1.0",
     "react": "^18.3.1",
     "react-chartjs-2": "^5.2.0",
-    "react-dom": "^18.3.1"
+    "react-datepicker": "^7.5.0",
+    "react-dom": "^18.3.1",
+    "recharts": "^2.13.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",
